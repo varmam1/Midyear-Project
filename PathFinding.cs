@@ -9,6 +9,7 @@ using System;
  * Then do the same with the player
  * Add it together
  * Make enemy go in the direction of the lowest score out of the 4 ways they can go around them
+ * Must have player have the "player" tag
  */
 
 public class PathFinding : MonoBehaviour {
@@ -24,7 +25,11 @@ public class PathFinding : MonoBehaviour {
 
 		//Initialize the scoredMaze and get the current cell the enemy is in
 		int[,] scoredMaze = new int[GlobalVariables.row , GlobalVariables.col];
-		Vector3 currentPos = this.gameObject.transform.position;  					//This line will only work for the enemy. Gotta put an if statement
+		Vector3 currentPos = new Vector3 ();
+		if (player == 0)
+			currentPos = this.gameObject.transform.position;
+		else
+			currentPos = GameObject.FindGameObjectWithTag ("player").transform.position;
 		int[] element = new int[2];
 		element [0] = Mathf.RoundToInt (currentPos.x / 2);
 		element [1] = Mathf.RoundToInt (currentPos.z / 2);
