@@ -29,7 +29,7 @@ public class PathFinding : MonoBehaviour {
 		if (player == 0)
 			currentPos = this.gameObject.transform.position;
 		else
-			currentPos = GameObject.FindGameObjectWithTag ("player").transform.position;
+			currentPos = GameObject.FindGameObjectWithTag ("Player").transform.position;
 		int[] element = new int[2];
 		element [0] = Mathf.RoundToInt (currentPos.x / 2);
 		element [1] = Mathf.RoundToInt (currentPos.z / 2);
