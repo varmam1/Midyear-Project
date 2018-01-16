@@ -10,6 +10,7 @@ using System;
  * Add it together
  * Make enemy go in the direction of the lowest score out of the 4 ways they can go around them
  * Must have player have the "player" tag
+ * Attach this script to the enemy
  */
 
 public class PathFinding : MonoBehaviour {
@@ -24,7 +25,7 @@ public class PathFinding : MonoBehaviour {
 		 */
 
 		//Initialize the scoredMaze and get the current cell the enemy is in
-		int[,] scoredMaze = new int[GlobalVariables.row , GlobalVariables.col];
+		int[,] scoredMaze = new int[GlobalVariables.row, GlobalVariables.col];
 		Vector3 currentPos = new Vector3 ();
 		if (player == 0)
 			currentPos = this.gameObject.transform.position;
@@ -34,6 +35,23 @@ public class PathFinding : MonoBehaviour {
 		element [0] = Mathf.RoundToInt (currentPos.x / 2);
 		element [1] = Mathf.RoundToInt (currentPos.z / 2);
 
+		if (player == 0) {
+			int[,,] maze = GlobalVariables.maze;
+			if (maze [element [0], element [1], 0] == 0) {
+				scoredMaze [element [0], element [1] - 1] = 1;
+			}
+			if (maze [element [0], element [1], 1] == 0) {
+				scoredMaze [element [0] + 1, element [1]] = 1;
+			}
+			if (maze [element [0], element [1], 2] == 0) {
+				scoredMaze [element [0], element [1] + 1] = 1;
+			}
+			if (maze [element [0], element [1], 3] == 0) {
+				scoredMaze [element [0] - 1, element [1]] = 1;
+			}
+			return scoredMaze;
+		}
+			
 		//Assuming no walls O(n^2)
 		for (int i = 0; i < GlobalVariables.row; i++) {
 			for (int j = 0; j < GlobalVariables.col; j++) {
@@ -102,4 +120,7 @@ public class PathFinding : MonoBehaviour {
 
 	}
 
+	int[] getDirection(){
+		return direction (addBoards (scoreBoard (0), scoreBoard (1)));
+	}
 }
