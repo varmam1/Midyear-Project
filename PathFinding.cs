@@ -39,27 +39,36 @@ public class PathFinding : MonoBehaviour {
 			int[,,] maze = GlobalVariables.maze;
 			if (maze [element [0], element [1], 0] == 0) {
 				scoredMaze [element [0], element [1] - 1] = 1;
+			} else {
+				scoredMaze [element [0], element [1] - 1] = 1000;
 			}
 			if (maze [element [0], element [1], 1] == 0) {
 				scoredMaze [element [0] + 1, element [1]] = 1;
+			} else {
+				scoredMaze [element [0] + 1, element [1]] = 1000;
 			}
 			if (maze [element [0], element [1], 2] == 0) {
 				scoredMaze [element [0], element [1] + 1] = 1;
+			} else {
+				scoredMaze [element [0], element [1] + 1] = 1000;
 			}
 			if (maze [element [0], element [1], 3] == 0) {
 				scoredMaze [element [0] - 1, element [1]] = 1;
+			} else {
+				scoredMaze [element [0] - 1, element [1]] = 1000;
 			}
 			return scoredMaze;
-		}
-			
-		//Assuming no walls O(n^2)
-		for (int i = 0; i < GlobalVariables.row; i++) {
-			for (int j = 0; j < GlobalVariables.col; j++) {
-				scoredMaze [i, j] = Mathf.Abs (i - element [0]) + Mathf.Abs (j - element [1]);
-			}
-		}
+		} else {
 
-		return scoredMaze;
+			//Assuming no walls
+			for (int i = 0; i < GlobalVariables.row; i++) {
+				for (int j = 0; j < GlobalVariables.col; j++) {
+					scoredMaze [i, j] = Mathf.Abs (i - element [0]) + Mathf.Abs (j - element [1]);
+				}
+			}
+
+			return scoredMaze;
+		}
 	}
 
 	int[,] addBoards(int[,] playerBoard, int[,] enemyBoard){
