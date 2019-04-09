@@ -1,5 +1,41 @@
 # Midyear-Project
 
+Welcome to some random multiplayer maze game (title not decided).
+This file is to store some important information.
+
+
+
+Prerequisites:
+
+
+-Make sure the data folder and executable file are in the same location
+-Have an internet connection
+-Have someone to play with
+
+
+How to Play:
+
+
+-WASD to move
+-Use mouse to move your camera angle
+-Right click to shoot tomatoes at your enemies
+-Use 1 to consume a potion (pineapple)
+-Press shift to move the camera position
+
+
+Patch Notes Version 1.0.2
+
+
+-Improved Budget $-100 --> $0
+-Cooldown of potions increased from 2 seconds --> 5 seconds
+-Potions spawn rate decreased
+-Track Kills 
+-Mouse look and improved camera angles
+-Reduced Unity-chan's size
+-Added to GUI
+
+
+
 This project is needed to be done. Only upload scripts. If no anime, not yet done. 
 
 Take our maze game and make it multiplayer and make it actually work. Also add a working “AI”
@@ -13,6 +49,8 @@ Actual Pathfinding on the enemies that actually hurt you
 
 
 Game Design Document 
+
+
 The target audience of our game are people who enjoy a good meme. It was made so that we as seniors could de-stress even more than the time where we played cards against humanity. We only implement of pc’s because pc’s are the greatest platform. Also Manu needs some therapy. 
 To complete a level the players must find and purify all enemies. The number of enemies is proportional to the number of players. Defeating enemies makes the player stronger, while being defeated causes you lose parameters. 
 Our player model is a clorox bottle. The enemies are currently boxes, but may be upgraded to Unity-chan. Animations are good, already mainly done, walking, shooting, Etc. We also shoot tomatoes and have items spawn randomly that give power ups. The walls and floors will hopefully be changed, probably medieval or underworld-ish to match the state of emotion that the player is in. 
